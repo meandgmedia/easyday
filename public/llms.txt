@@ -1,0 +1,33 @@
+# Easy Day Notary
+
+> Easy Day Notary is a licensed Florida Notary Public providing mobile
+> notary and Remote Online Notarization (RON) services throughout Florida,
+> including loan signing agent services for real estate closings.
+
+Easy Day Notary helps individuals, real estate professionals, and title
+companies get documents notarized in person or online, with flexible
+scheduling including evenings and weekends.
+
+## Company
+
+- [About Easy Day Notary](https://easydaynotary.com/about): Background, mission, and values.
+- [Contact](https://easydaynotary.com/contact): Phone, email, hours, and service area.
+- [Schedule an Appointment](https://easydaynotary.com/schedule): Book a mobile visit or Remote Online Notary session.
+
+## Services
+
+- [All Services](https://easydaynotary.com/services): Overview of every notary service offered.
+- [Mobile Notary](https://easydaynotary.com/mobile-notary): In-person notarization at the client's location.
+- [Remote Online Notary (RON)](https://easydaynotary.com/remote-online-notary): Live video notarization available statewide in Florida.
+- [Loan Signings](https://easydaynotary.com/loan-signings): Loan signing agent services for purchase, refinance, and HELOC closings.
+- [Apostille Services](https://easydaynotary.com/apostille-services): Coming soon.
+
+## Guides
+
+- [Florida Notary Services: What You Need to Know](https://easydaynotary.com/blog/florida-notary-services-guide): An overview of how notarization works in Florida.
+- [Mobile Notary vs Remote Online Notary](https://easydaynotary.com/blog/mobile-notary-vs-online-notary): A comparison to help signers choose the right service.
+
+## Legal
+
+- [Privacy Policy](https://easydaynotary.com/privacy-policy)
+- [Terms of Service](https://easydaynotary.com/terms)

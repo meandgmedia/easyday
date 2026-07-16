@@ -1,0 +1,149 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { breadcrumbSchema } from "../lib/schema";
+import { CONTACT } from "../consts";
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "Contact", path: "/contact" },
+];
+---
+
+<Layout
+  title="Contact Easy Day Notary"
+  description="Get in touch with Easy Day Notary to schedule a mobile or remote online notarization, or ask a question about our services."
+  path="/contact"
+  jsonLd={breadcrumbSchema(crumbs)}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="py-16 md:py-20">
+    <div class="container-page grid grid-cols-1 gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h1 class="mt-4 font-display text-4xl font-bold leading-tight text-ink sm:text-5xl">
+          Let's get it signed.
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate">
+          Reach out with your document details and preferred appointment
+          time — mobile or Remote Online Notarization.
+        </p>
+
+        <dl class="mt-10 space-y-8">
+          <div class="border-t border-line pt-5">
+            <dt class="eyebrow">Phone</dt>
+            <!-- TODO: Replace placeholder phone number in src/consts.ts -->
+            <dd class="mt-2">
+              <a href={CONTACT.phoneHref} class="font-display text-xl font-semibold text-ink hover:text-seal-dark">
+                {CONTACT.phoneDisplay}
+              </a>
+            </dd>
+          </div>
+          <div class="border-t border-line pt-5">
+            <dt class="eyebrow">Email</dt>
+            <!-- TODO: Replace placeholder email in src/consts.ts -->
+            <dd class="mt-2">
+              <a href={`mailto:${CONTACT.email}`} class="font-display text-xl font-semibold text-ink hover:text-seal-dark">
+                {CONTACT.email}
+              </a>
+            </dd>
+          </div>
+          <div class="border-t border-line pt-5">
+            <dt class="eyebrow">Business Hours</dt>
+            <dd class="mt-3 space-y-1.5">
+              {CONTACT.hours.map((h) => (
+                <div class="flex justify-between gap-6 text-sm text-slate">
+                  <span>{h.day}</span>
+                  <span class="font-medium text-ink">{h.time}</span>
+                </div>
+              ))}
+            </dd>
+          </div>
+          <div class="border-t border-line pt-5">
+            <dt class="eyebrow">Service Area</dt>
+            <dd class="mt-2 text-[0.98rem] leading-relaxed text-slate">
+              {CONTACT.serviceArea}. Remote Online Notarization available
+              statewide.
+            </dd>
+          </div>
+        </dl>
+      </div>
+
+      <div>
+        <!-- ============ MAP PLACEHOLDER ============ -->
+        <!-- TODO: Replace with an embedded Google Map centered on your service area -->
+        <div class="flex h-64 w-full items-center justify-center rounded-xl border-2 border-dashed border-line bg-stone text-center">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-9 w-9 text-slate-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75 15 4.5v13.5l-6 2.25m0-13.5L3 4.5v13.5l6 2.25m0-13.5 6 2.25m-6 11.25 6 2.25V6.75" />
+            </svg>
+            <p class="mt-3 font-display text-sm font-semibold text-ink">Map placeholder</p>
+            <p class="mt-1 text-xs text-slate-light">Service area map coming soon</p>
+          </div>
+        </div>
+
+        <!-- ============ CONTACT FORM PLACEHOLDER ============ -->
+        <div class="card mt-8 p-8">
+          <h2 class="font-display text-xl font-semibold text-ink">Send a Message</h2>
+          <p class="mt-2 text-sm text-slate">
+            Fill out the form and we'll get back to you promptly.
+          </p>
+
+          <!--
+            TODO: Replace this placeholder form with your Web3Forms integration.
+            Example:
+
+            <form action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+              ... form fields ...
+            </form>
+
+            See https://web3forms.com/ for setup instructions.
+          -->
+          <form class="mt-6 space-y-5" aria-describedby="form-placeholder-note">
+            <div>
+              <label for="name" class="mb-1.5 block text-sm font-medium text-ink">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                disabled
+                placeholder="Jane Signer"
+                class="w-full rounded-lg border border-line bg-stone px-4 py-3 text-sm text-ink placeholder:text-slate-light disabled:cursor-not-allowed"
+              />
+            </div>
+            <div>
+              <label for="email" class="mb-1.5 block text-sm font-medium text-ink">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                disabled
+                placeholder="jane@example.com"
+                class="w-full rounded-lg border border-line bg-stone px-4 py-3 text-sm text-ink placeholder:text-slate-light disabled:cursor-not-allowed"
+              />
+            </div>
+            <div>
+              <label for="message" class="mb-1.5 block text-sm font-medium text-ink">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                disabled
+                placeholder="Tell us what you need notarized and when..."
+                class="w-full rounded-lg border border-line bg-stone px-4 py-3 text-sm text-ink placeholder:text-slate-light disabled:cursor-not-allowed"
+              ></textarea>
+            </div>
+            <button type="button" disabled class="btn btn-primary w-full cursor-not-allowed opacity-60">
+              Send Message
+            </button>
+            <p id="form-placeholder-note" class="text-center text-xs text-slate-light">
+              Form placeholder — connect Web3Forms to activate.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

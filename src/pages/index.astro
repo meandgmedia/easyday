@@ -1,0 +1,374 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import CtaBand from "../components/CtaBand.astro";
+import StampMark from "../components/StampMark.astro";
+import { CONTACT } from "../consts";
+import { organizationSchema, localBusinessSchema, faqSchema } from "../lib/schema";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 2);
+
+const faqs = [
+  {
+    question: "What is a mobile notary?",
+    answer:
+      "A mobile notary travels to you — your home, office, hospital, or another location — to notarize your documents in person. It's ideal when you can't easily get to a notary's office or need signing to happen on your own schedule.",
+  },
+  {
+    question: "What is a Remote Online Notary (RON)?",
+    answer:
+      "Remote Online Notarization lets you meet with a Florida-commissioned notary over a secure live video call. You sign electronically, and the session is recorded, so the whole process can be completed from your phone or computer.",
+  },
+  {
+    question: "What should I bring to my notary appointment?",
+    answer:
+      "Bring your unsigned documents and a valid, government-issued photo ID. Do not sign your documents beforehand — Florida law requires you to sign in the notary's presence.",
+  },
+  {
+    question: "Do you offer evening and weekend appointments?",
+    answer:
+      "Yes. Easy Day Notary offers flexible scheduling, including evenings and weekends, to fit around work, closings, and family life.",
+  },
+  {
+    question: "Which areas do you serve?",
+    answer:
+      "Easy Day Notary provides mobile notary services throughout our local Florida service area, with Remote Online Notarization available to signers anywhere in Florida.",
+  },
+];
+---
+
+<Layout
+  title="Easy Day Notary | Florida Mobile & Remote Online Notary Services"
+  description="Licensed Florida mobile and remote online notary. Fast, professional notarizations at your home, office, or online — evenings and weekends available."
+  path="/"
+  jsonLd={[organizationSchema(), localBusinessSchema(), faqSchema(faqs)]}
+>
+  <!-- ============ HERO ============ -->
+  <section class="relative overflow-hidden border-b border-line">
+    <div class="container-page grid grid-cols-1 items-center gap-12 py-20 md:py-28 lg:grid-cols-[1.1fr_0.9fr]">
+      <div>
+        <span class="stamp-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+          </svg>
+          Licensed Florida Notary
+        </span>
+        <h1 class="mt-6 font-display text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">
+          Notarizations that fit into your day, not the other way around.
+        </h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate">
+          Easy Day Notary brings mobile and remote online notary services to
+          Florida signers who don't have time to wait in line. We come to
+          you, or meet you online — evenings and weekends included.
+        </p>
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+          <a href="/schedule" class="btn btn-primary">
+            Schedule Appointment
+          </a>
+          <a href={CONTACT.phoneHref} class="btn btn-secondary">
+            Call Now — {CONTACT.phoneDisplay}
+          </a>
+        </div>
+        <dl class="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-line pt-8">
+          <div>
+            <dt class="eyebrow">Response</dt>
+            <dd class="mt-1 font-display text-2xl font-semibold text-ink">Same day</dd>
+          </div>
+          <div>
+            <dt class="eyebrow">Coverage</dt>
+            <dd class="mt-1 font-display text-2xl font-semibold text-ink">Statewide RON</dd>
+          </div>
+          <div>
+            <dt class="eyebrow">Availability</dt>
+            <dd class="mt-1 font-display text-2xl font-semibold text-ink">7 days</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="relative mx-auto flex w-full max-w-md items-center justify-center">
+        <div class="seal-ring flex aspect-square w-full items-center justify-center rounded-full p-10">
+          <div class="seal-ring flex aspect-square w-[80%] items-center justify-center rounded-full p-6">
+            <img
+              src="/images/easyday-logo.png"
+              alt="Easy Day Notary logo"
+              class="w-full max-w-[280px]"
+              width="280"
+              height="102"
+            />
+          </div>
+        </div>
+        <StampMark class="absolute -bottom-4 -right-2 h-24 w-24 bg-paper shadow-soft" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT SUMMARY ============ -->
+  <section class="border-b border-line py-20 md:py-24">
+    <div class="container-page grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+      <div>
+        <span class="eyebrow">About Easy Day Notary</span>
+        <h2 class="mt-4 font-display text-3xl font-semibold leading-tight text-ink md:text-4xl">
+          A calm, professional presence for one of life's small stressful moments.
+        </h2>
+      </div>
+      <div class="flex flex-col justify-between gap-8">
+        <p class="text-lg leading-relaxed text-slate">
+          <!-- TODO: Personalize this bio with your own background and story -->
+          Easy Day Notary was founded to make notarization simple, dignified,
+          and stress-free. As a commissioned Florida Notary Public, I handle
+          everything from single-signature affidavits to full loan signing
+          packages with the same care and attention to detail — whether we
+          meet in person or online.
+        </p>
+        <a href="/about" class="btn btn-ghost link-underline w-fit font-semibold">
+          Learn more about Easy Day Notary →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES OVERVIEW ============ -->
+  <section class="border-b border-line bg-stone py-20 md:py-24">
+    <div class="container-page">
+      <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+        <div>
+          <span class="eyebrow">What We Offer</span>
+          <h2 class="mt-4 font-display text-3xl font-semibold text-ink md:text-4xl">
+            Notary services for every document.
+          </h2>
+        </div>
+        <a href="/services" class="btn btn-secondary bg-paper shrink-0">
+          View All Services
+        </a>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <ServiceCard
+          index="01"
+          title="Mobile Notary"
+          description="We travel to your home, office, hospital, or a location of your choice, anywhere in our Florida service area."
+          href="/mobile-notary"
+        />
+        <ServiceCard
+          index="02"
+          title="Remote Online Notary"
+          description="Meet a Florida-commissioned notary over secure live video and sign electronically from anywhere in the state."
+          href="/remote-online-notary"
+        />
+        <ServiceCard
+          index="03"
+          title="Loan Signings"
+          description="Purchase, refinance, and HELOC packages handled with the accuracy and timeliness title companies expect."
+          href="/loan-signings"
+        />
+        <ServiceCard
+          index="04"
+          title="Apostille Services"
+          description="Assistance preparing Florida documents for international use through the Florida Department of State."
+          href="/apostille-services"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY CHOOSE US ============ -->
+  <section class="border-b border-line py-20 md:py-24">
+    <div class="container-page">
+      <span class="eyebrow">Why Choose Easy Day Notary</span>
+      <h2 class="mt-4 max-w-2xl font-display text-3xl font-semibold text-ink md:text-4xl">
+        Precise where it matters. Easy where it should be.
+      </h2>
+
+      <div class="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        {[
+          {
+            title: "Licensed & Insured",
+            body: "Commissioned Florida Notary Public, bonded and insured for your protection and peace of mind.",
+          },
+          {
+            title: "Flexible Scheduling",
+            body: "Evening and weekend appointments available, because most signings don't happen 9-to-5.",
+          },
+          {
+            title: "In-Person or Online",
+            body: "Choose a mobile visit or a Remote Online Notarization session — whichever fits your day.",
+          },
+          {
+            title: "Careful with Details",
+            body: "Every document is reviewed for completeness before you sign, to help avoid costly rejections.",
+          },
+          {
+            title: "Clear Communication",
+            body: "Straightforward pricing and prompt replies, from your first message to your finished notarization.",
+          },
+          {
+            title: "Loan Signing Trained",
+            body: "Experienced with title company packages, escrow timelines, and lender-specific requirements.",
+          },
+        ].map((item) => (
+          <div class="flex gap-4">
+            <span class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-seal-light text-seal-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+            </span>
+            <div>
+              <h3 class="font-display text-lg font-semibold text-ink">{item.title}</h3>
+              <p class="mt-1.5 text-[0.95rem] leading-relaxed text-slate">{item.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AREAS SERVED ============ -->
+  <section class="border-b border-line bg-ink py-20 md:py-24">
+    <div class="container-page grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
+      <div>
+        <span class="eyebrow">Areas Served</span>
+        <h2 class="mt-4 font-display text-3xl font-semibold text-paper md:text-4xl">
+          Local mobile coverage. Statewide online reach.
+        </h2>
+        <p class="mt-5 max-w-lg text-base leading-relaxed text-white/60">
+          <!-- TODO: List your real cities/counties here -->
+          {CONTACT.serviceArea}. Remote Online Notarization is available to
+          any signer located within Florida, regardless of city or county.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+        {["Vero Beach", "Sebastian", "Fort Pierce", "Port St. Lucie", "Melbourne", "Statewide (RON)"].map((city) => (
+          <div class="rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-center">
+            <p class="font-display text-sm font-semibold text-paper">{city}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="border-b border-line py-20 md:py-24">
+    <div class="container-page">
+      <span class="eyebrow">How It Works</span>
+      <h2 class="mt-4 max-w-2xl font-display text-3xl font-semibold text-ink md:text-4xl">
+        Three steps to a signed, sealed document.
+      </h2>
+
+      <ol class="mt-14 grid grid-cols-1 gap-10 md:grid-cols-3">
+        {[
+          {
+            step: "01",
+            title: "Schedule",
+            body: "Book online or call to tell us what you need signed and where — in person or via video.",
+          },
+          {
+            step: "02",
+            title: "Prepare",
+            body: "Have your unsigned documents ready and bring a valid photo ID to your appointment.",
+          },
+          {
+            step: "03",
+            title: "Sign & Notarize",
+            body: "We verify your ID, witness your signature, and complete the notarial certificate on the spot.",
+          },
+        ].map((item) => (
+          <li class="border-t-2 border-ink pt-6">
+            <span class="font-mono text-sm text-seal">{item.step}</span>
+            <h3 class="mt-3 font-display text-xl font-semibold text-ink">{item.title}</h3>
+            <p class="mt-2 text-[0.95rem] leading-relaxed text-slate">{item.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="border-b border-line bg-stone py-20 md:py-24">
+    <div class="container-page">
+      <span class="eyebrow">Client Feedback</span>
+      <h2 class="mt-4 max-w-2xl font-display text-3xl font-semibold text-ink md:text-4xl">
+        Trusted for showing up prepared, and on time.
+      </h2>
+
+      <!-- Placeholder testimonials — replace with real client reviews -->
+      <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <TestimonialCard
+          quote="Easy Day Notary came to our closing on short notice and made a stressful afternoon completely painless."
+          name="J. Ramirez"
+          role="Home Buyer, Vero Beach"
+        />
+        <TestimonialCard
+          quote="The remote online session was quick and simple — I didn't have to leave my office."
+          name="M. Chen"
+          role="Small Business Owner"
+        />
+        <TestimonialCard
+          quote="Professional, punctual, and clearly knew the loan signing package inside and out."
+          name="D. Whitfield"
+          role="Title Company Coordinator"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="border-b border-line py-20 md:py-24">
+    <div class="container-page">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+        <div>
+          <span class="eyebrow">FAQ</span>
+          <h2 class="mt-4 font-display text-3xl font-semibold text-ink md:text-4xl">
+            Frequently asked questions.
+          </h2>
+          <p class="mt-4 text-[0.95rem] leading-relaxed text-slate">
+            Can't find what you're looking for?
+            <a href="/contact" class="link-underline font-semibold text-ink">Get in touch</a>.
+          </p>
+        </div>
+        <FaqAccordion items={faqs} />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RECENT BLOG POSTS ============ -->
+  {posts.length > 0 && (
+    <section class="border-b border-line py-20 md:py-24">
+      <div class="container-page">
+        <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <span class="eyebrow">From the Blog</span>
+            <h2 class="mt-4 font-display text-3xl font-semibold text-ink md:text-4xl">
+              Notary knowledge, plainly explained.
+            </h2>
+          </div>
+          <a href="/blog" class="btn btn-secondary shrink-0">Visit the Blog</a>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {posts.map((post) => (
+            <a href={`/blog/${post.id}`} class="card flex flex-col p-7">
+              <span class="font-mono text-xs uppercase tracking-widest text-slate-light">
+                {post.data.publishDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+              </span>
+              <h3 class="mt-3 font-display text-xl font-semibold text-ink">{post.data.title}</h3>
+              <p class="mt-2.5 text-[0.95rem] leading-relaxed text-slate">{post.data.description}</p>
+              <span class="mt-6 inline-flex items-center gap-1.5 font-display text-sm font-semibold text-ink">
+                Read article
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0-4 4m4-4H3" />
+                </svg>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <CtaBand />
+</Layout>

@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import CtaBand from "../components/CtaBand.astro";
+import StampMark from "../components/StampMark.astro";
+import { breadcrumbSchema } from "../lib/schema";
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services" },
+  { name: "Apostille Services", path: "/apostille-services" },
+];
+---
+
+<Layout
+  title="Apostille Services in Florida"
+  description="Easy Day Notary is expanding into apostille preparation services for Florida documents used internationally. Details coming soon."
+  path="/apostille-services"
+  jsonLd={breadcrumbSchema(crumbs)}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="py-24 md:py-32">
+    <div class="container-page flex flex-col items-center text-center">
+      <StampMark class="h-28 w-28" label="COMING SOON" />
+      <span class="eyebrow mt-8">Apostille Services</span>
+      <h1 class="mt-4 max-w-2xl font-display text-4xl font-bold leading-tight text-ink sm:text-5xl">
+        Coming soon.
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate">
+        We're preparing to offer apostille preparation assistance for Florida
+        documents that need to be used internationally. In the meantime, our
+        full range of mobile and remote online notary services is available
+        now.
+      </p>
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+        <a href="/services" class="btn btn-primary">View Current Services</a>
+        <a href="/contact" class="btn btn-secondary">Ask a Question</a>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Layout>

@@ -1,0 +1,281 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Color tokens ---- */
+  --color-ink: #0a0a0a;
+  --color-paper: #ffffff;
+  --color-stone: #f6f6f4;
+  --color-mist: #eeeeec;
+  --color-line: #e2e2df;
+  --color-slate: #63625d;
+  --color-slate-light: #8a8985;
+  --color-seal: #0f7a42;
+  --color-seal-dark: #0b5e33;
+  --color-seal-light: #e9f5ee;
+
+  /* ---- Type tokens ---- */
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --shadow-subtle: 0 1px 2px 0 rgb(10 10 10 / 0.04), 0 1px 1px 0 rgb(10 10 10 / 0.03);
+  --shadow-soft: 0 4px 16px -4px rgb(10 10 10 / 0.08), 0 2px 6px -2px rgb(10 10 10 / 0.04);
+  --shadow-lift: 0 12px 32px -8px rgb(10 10 10 / 0.14), 0 4px 12px -4px rgb(10 10 10 / 0.06);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background-color: var(--color-paper);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-seal);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-seal);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.8rem 1.5rem;
+    transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+    white-space: nowrap;
+  }
+
+  .btn:active {
+    transform: translateY(1px);
+  }
+
+  .btn-primary {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-seal-dark);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-ink);
+    border: 1px solid var(--color-line);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-ink);
+    background-color: var(--color-stone);
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--color-ink);
+    padding-inline: 0;
+  }
+
+  .card {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 0.9rem;
+    box-shadow: var(--shadow-subtle);
+    transition: box-shadow 200ms ease, transform 200ms ease, border-color 200ms ease;
+  }
+
+  .card:hover {
+    box-shadow: var(--shadow-lift);
+    transform: translateY(-2px);
+    border-color: var(--color-line);
+  }
+
+  /* Seal / stamp motif — the signature visual element, echoing the notary
+     stamp in the logo. A perforated ring used sparingly as a mark of
+     verification throughout the site. */
+  .seal-ring {
+    position: relative;
+    border-radius: 9999px;
+    border: 1.5px dashed var(--color-line);
+  }
+
+  .stamp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-seal-dark);
+    background-color: var(--color-seal-light);
+    border: 1px solid color-mix(in srgb, var(--color-seal) 30%, transparent);
+    border-radius: 9999px;
+    padding: 0.3rem 0.7rem;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(var(--color-ink), var(--color-ink));
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 200ms ease;
+  }
+
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  /* Prose styling for rendered markdown (blog posts, legal pages) */
+  .prose-notary {
+    color: var(--color-slate);
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+
+  .prose-notary h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .prose-notary h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose-notary p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose-notary ul,
+  .prose-notary ol {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1.4rem;
+  }
+
+  .prose-notary ul {
+    list-style-type: disc;
+  }
+
+  .prose-notary ol {
+    list-style-type: decimal;
+  }
+
+  .prose-notary li {
+    margin-top: 0.4rem;
+  }
+
+  .prose-notary li > strong {
+    color: var(--color-ink);
+  }
+
+  .prose-notary a {
+    color: var(--color-ink);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--color-line);
+    text-underline-offset: 3px;
+  }
+
+  .prose-notary a:hover {
+    text-decoration-color: var(--color-ink);
+  }
+
+  .prose-notary strong {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  .prose-notary table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.92rem;
+  }
+
+  .prose-notary th,
+  .prose-notary td {
+    border: 1px solid var(--color-line);
+    padding: 0.6rem 0.9rem;
+    text-align: left;
+  }
+
+  .prose-notary th {
+    font-family: var(--font-display);
+    background-color: var(--color-stone);
+    color: var(--color-ink);
+  }
+
+  .prose-notary blockquote {
+    border-left: 3px solid var(--color-seal);
+    padding-left: 1.2rem;
+    font-style: italic;
+    color: var(--color-ink);
+    margin: 1.5rem 0;
+  }
+}

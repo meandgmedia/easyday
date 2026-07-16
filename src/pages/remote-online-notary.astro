@@ -1,0 +1,102 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import CtaBand from "../components/CtaBand.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import { breadcrumbSchema, faqSchema } from "../lib/schema";
+import { CONTACT } from "../consts";
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services" },
+  { name: "Remote Online Notary", path: "/remote-online-notary" },
+];
+
+const faqs = [
+  {
+    question: "Is Remote Online Notarization legal in Florida?",
+    answer:
+      "Yes. Florida law (Chapter 117) authorizes commissioned Remote Online Notaries to perform notarizations via live audio-video technology, with identity verification and a recorded session.",
+  },
+  {
+    question: "What do I need for a RON session?",
+    answer:
+      "A computer or smartphone with a camera and reliable internet connection, a valid government-issued photo ID, and access to the documents you need notarized.",
+  },
+  {
+    question: "Is a RON notarization accepted everywhere?",
+    answer:
+      "Most banks, title companies, and government agencies accept RON notarizations performed under Florida law, but if you're unsure, it's worth confirming with the receiving party beforehand.",
+  },
+  {
+    question: "How long does a session take?",
+    answer:
+      "Most Remote Online Notarization sessions take 10–20 minutes, depending on the number of documents and signers involved.",
+  },
+];
+
+const steps = [
+  { title: "Book Your Session", body: "Choose a time online and upload your documents ahead of the call." },
+  { title: "Verify Your Identity", body: "Complete a quick knowledge-based identity check and ID scan." },
+  { title: "Sign on Camera", body: "Meet via secure video, sign electronically, and receive your notarized file." },
+];
+---
+
+<Layout
+  title="Remote Online Notary (RON) in Florida"
+  description="Sign and notarize documents online via secure live video with a Florida-commissioned Remote Online Notary — available statewide."
+  path="/remote-online-notary"
+  jsonLd={[breadcrumbSchema(crumbs), faqSchema(faqs)]}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="border-b border-line py-16 md:py-24">
+    <div class="container-page max-w-3xl">
+      <span class="eyebrow">Remote Online Notary (RON)</span>
+      <h1 class="mt-4 font-display text-4xl font-bold leading-tight text-ink sm:text-5xl">
+        Notarized online, anywhere in Florida.
+      </h1>
+      <p class="mt-6 text-lg leading-relaxed text-slate">
+        Skip the drive. Meet a commissioned Florida notary over secure live
+        video, verify your identity, and sign your documents electronically
+        — all from your phone, tablet, or computer.
+      </p>
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+        <a href="/schedule" class="btn btn-primary">Schedule a RON Session</a>
+        <a href={CONTACT.phoneHref} class="btn btn-secondary">Call Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-line bg-stone py-16 md:py-20">
+    <div class="container-page">
+      <span class="eyebrow">How It Works</span>
+      <h2 class="mt-4 max-w-xl font-display text-3xl font-semibold text-ink">
+        Three steps, fully online.
+      </h2>
+      <ol class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
+        {steps.map((step, i) => (
+          <li class="border-t-2 border-ink pt-5">
+            <span class="font-mono text-sm text-seal">0{i + 1}</span>
+            <h3 class="mt-3 font-display text-lg font-semibold text-ink">{step.title}</h3>
+            <p class="mt-2 text-[0.95rem] leading-relaxed text-slate">{step.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="border-b border-line py-16 md:py-20">
+    <div class="container-page">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="mt-4 max-w-xl font-display text-3xl font-semibold text-ink">
+        Remote online notary questions.
+      </h2>
+      <div class="mt-10">
+        <FaqAccordion items={faqs} />
+      </div>
+    </div>
+  </section>
+
+  <CtaBand heading="Ready to sign online?" subheading="Book a Remote Online Notarization session from wherever you are in Florida." />
+</Layout>

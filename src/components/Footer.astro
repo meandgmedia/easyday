@@ -1,0 +1,77 @@
+---
+import { SITE, CONTACT, SOCIAL, NAV_LINKS, SERVICE_LINKS, LEGAL_LINKS } from "../consts";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line bg-stone">
+  <div class="container-page py-16">
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
+      <div>
+        <a href="/" class="inline-flex" aria-label="Easy Day Notary home">
+          <img
+            src="/images/easyday-logo.png"
+            alt="Easy Day Notary"
+            class="h-10 w-auto"
+            width="220"
+            height="80"
+          />
+        </a>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-slate">
+          Licensed Florida mobile &amp; remote online notary. Documents notarized
+          correctly, on your schedule, wherever you are.
+        </p>
+        <div class="mt-5 flex items-center gap-3">
+          <!-- Social media placeholders — update or remove links in src/consts.ts -->
+          <a href={SOCIAL.facebook} aria-label="Easy Day Notary on Facebook" class="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-paper text-slate transition-colors hover:border-ink hover:text-ink">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94Z"/></svg>
+          </a>
+          <a href={SOCIAL.instagram} aria-label="Easy Day Notary on Instagram" class="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-paper text-slate transition-colors hover:border-ink hover:text-ink">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.09.28 6.82.11 7.88.06 8.94.01 9.28 0 12 0Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.17 1.17 0 1 0 0-2.34 1.17 1.17 0 0 0 0 2.34Z"/></svg>
+          </a>
+          <a href={SOCIAL.linkedin} aria-label="Easy Day Notary on LinkedIn" class="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-paper text-slate transition-colors hover:border-ink hover:text-ink">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.24 8.5h4.5V23h-4.5V8.5ZM8.5 8.5h4.31v1.98h.06c.6-1.14 2.07-2.34 4.26-2.34 4.55 0 5.39 3 5.39 6.9V23h-4.5v-6.98c0-1.66-.03-3.8-2.32-3.8-2.32 0-2.68 1.81-2.68 3.68V23H8.5V8.5Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="eyebrow">Company</h3>
+        <ul class="mt-4 space-y-3 text-sm">
+          {NAV_LINKS.map((link) => (
+            <li><a href={link.href} class="text-slate hover:text-ink">{link.label}</a></li>
+          ))}
+          <li><a href="/schedule" class="text-slate hover:text-ink">Schedule</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="eyebrow">Services</h3>
+        <ul class="mt-4 space-y-3 text-sm">
+          {SERVICE_LINKS.map((link) => (
+            <li><a href={link.href} class="text-slate hover:text-ink">{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="eyebrow">Contact</h3>
+        <ul class="mt-4 space-y-3 text-sm text-slate">
+          <!-- TODO: Confirm final phone / email / hours before launch -->
+          <li><a href={CONTACT.phoneHref} class="hover:text-ink">{CONTACT.phoneDisplay}</a></li>
+          <li><a href={`mailto:${CONTACT.email}`} class="hover:text-ink">{CONTACT.email}</a></li>
+          <li>{CONTACT.serviceArea}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 flex flex-col items-start justify-between gap-4 border-t border-line pt-8 text-sm text-slate-light md:flex-row md:items-center">
+      <p>&copy; {year} {SITE.name}. All rights reserved.</p>
+      <div class="flex flex-wrap gap-x-6 gap-y-2">
+        {LEGAL_LINKS.map((link) => (
+          <a href={link.href} class="hover:text-ink">{link.label}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>

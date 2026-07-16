@@ -1,0 +1,110 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { breadcrumbSchema } from "../lib/schema";
+import { SITE, CONTACT } from "../consts";
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "Privacy Policy", path: "/privacy-policy" },
+];
+
+const lastUpdated = "July 16, 2026";
+---
+
+<Layout
+  title="Privacy Policy"
+  description="Read the Easy Day Notary privacy policy to learn how we collect, use, and protect your information."
+  path="/privacy-policy"
+  jsonLd={breadcrumbSchema(crumbs)}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="py-16 md:py-20">
+    <div class="container-page max-w-3xl">
+      <span class="eyebrow">Legal</span>
+      <h1 class="mt-4 font-display text-4xl font-bold text-ink">Privacy Policy</h1>
+      <p class="mt-3 text-sm text-slate-light">Last updated: {lastUpdated}</p>
+
+      <!-- TODO: Have this policy reviewed by a Florida attorney before publishing -->
+      <div class="prose-notary mt-10 space-y-8 text-[0.98rem] leading-relaxed text-slate">
+        <div>
+          <h2 class="font-display text-xl font-semibold text-ink">1. Introduction</h2>
+          <p class="mt-3">
+            {SITE.name} ("we," "us," or "our") respects your privacy. This
+            Privacy Policy explains how we collect, use, and safeguard
+            information when you visit {SITE.url} or use our notary
+            services.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-semibold text-ink">2. Information We Collect</h2>
+          <p class="mt-3">We may collect information you provide directly, including:</p>
+          <ul class="mt-3 list-disc space-y-2 pl-5">
+            <li>Contact details such as name, phone number, and email address</li>
+            <li>Appointment details, including document type and location</li>
+            <li>Identity verification information required to perform a notarization under Florida law</li>
+            <li>Information submitted through our contact or scheduling forms</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-semibold text-ink">3. How We Use Information</h2>
+          <p class="mt-3">
+            Information is used to schedule and perform notarization
+            services, comply with Florida notary recordkeeping requirements,
+            respond to inquiries, and improve our services. We do not sell
+            personal information to third parties.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-semibold text-ink">4. Notary Journal Records</h2>
+          <p class="mt-3">
+            As required by Florida law, notarizations are recorded in a
+            notary journal, which may include identifying details from your
+            government-issued ID. These records are retained and protected
+            as required by law.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-semibold text-ink">5. Third-Party Services</h2>
+          <p class="mt-3">
+            We may use third-party tools for scheduling (such as Calendly),
+            remote online notarization (such as BlueNotary), and contact
+            forms (such as Web3Forms). These providers have their own
+            privacy policies governing the information you submit through
+            them.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-semibold text-ink">6. Data Security</h2>
+          <p class="mt-3">
+            We take reasonable measures to protect your information, but no
+            method of transmission or storage is completely secure.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-semibold text-ink">7. Your Choices</h2>
+          <p class="mt-3">
+            You may contact us at any time to ask what information we hold
+            about you or to request corrections, subject to our legal
+            recordkeeping obligations as a Florida Notary Public.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-semibold text-ink">8. Contact Us</h2>
+          <p class="mt-3">
+            Questions about this policy can be sent to
+            {" "}<a href={`mailto:${CONTACT.email}`} class="link-underline font-semibold text-ink">{CONTACT.email}</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

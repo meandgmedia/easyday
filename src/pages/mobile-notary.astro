@@ -1,0 +1,114 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import CtaBand from "../components/CtaBand.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import { breadcrumbSchema, faqSchema } from "../lib/schema";
+import { CONTACT } from "../consts";
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services" },
+  { name: "Mobile Notary", path: "/mobile-notary" },
+];
+
+const faqs = [
+  {
+    question: "How far will you travel for a mobile appointment?",
+    answer: `Easy Day Notary travels throughout the local service area. ${CONTACT.serviceArea}. Contact us to confirm coverage for your specific location.`,
+  },
+  {
+    question: "Can you come to a hospital or care facility?",
+    answer:
+      "Yes. Mobile notary visits to hospitals, hospice facilities, and assisted living communities are common — just note any visitor requirements when you schedule.",
+  },
+  {
+    question: "How quickly can you get to me?",
+    answer:
+      "Same-day and next-day appointments are often available. Urgent requests are welcome — call directly for the fastest response.",
+  },
+  {
+    question: "What forms of payment do you accept?",
+    answer:
+      "Payment details are provided at the time of booking. Fees are confirmed before your appointment so there are no surprises.",
+  },
+];
+
+const included = [
+  "Travel to your home, office, or another agreed location",
+  "Identity verification per Florida notary law",
+  "Witnessing of signatures and completion of the notarial certificate",
+  "Journal entry recorded for every notarization performed",
+];
+---
+
+<Layout
+  title="Mobile Notary Services in Florida"
+  description="Easy Day Notary travels to your home, office, or another location for fast, professional mobile notary services throughout our Florida service area."
+  path="/mobile-notary"
+  jsonLd={[breadcrumbSchema(crumbs), faqSchema(faqs)]}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="border-b border-line py-16 md:py-24">
+    <div class="container-page grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+      <div>
+        <span class="eyebrow">Mobile Notary</span>
+        <h1 class="mt-4 font-display text-4xl font-bold leading-tight text-ink sm:text-5xl">
+          We come to you.
+        </h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate">
+          Home, office, hospital room, or coffee shop — a licensed Florida
+          notary meets you wherever your document needs to be signed.
+          Evening and weekend appointments are available for anyone who
+          can't get away during the workday.
+        </p>
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+          <a href="/schedule" class="btn btn-primary">Schedule a Mobile Visit</a>
+          <a href={CONTACT.phoneHref} class="btn btn-secondary">Call Now</a>
+        </div>
+      </div>
+
+      <div class="card p-8">
+        <h2 class="font-display text-lg font-semibold text-ink">What's Included</h2>
+        <ul class="mt-5 space-y-3">
+          {included.map((item) => (
+            <li class="flex gap-3 text-[0.95rem] leading-relaxed text-slate">
+              <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-seal"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-line bg-stone py-16 md:py-20">
+    <div class="container-page grid grid-cols-1 gap-10 md:grid-cols-3">
+      {[
+        { title: "Real Estate Closings", body: "In-person signing for buyers, sellers, and refinance documents." },
+        { title: "Estate & POA Documents", body: "Powers of attorney, wills-related affidavits, and trust paperwork." },
+        { title: "Personal Documents", body: "Travel consent forms, affidavits, and general acknowledgments." },
+      ].map((item) => (
+        <div class="border-t-2 border-ink pt-5">
+          <h3 class="font-display text-lg font-semibold text-ink">{item.title}</h3>
+          <p class="mt-2 text-[0.95rem] leading-relaxed text-slate">{item.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-b border-line py-16 md:py-20">
+    <div class="container-page">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="mt-4 max-w-xl font-display text-3xl font-semibold text-ink">
+        Mobile notary questions.
+      </h2>
+      <div class="mt-10">
+        <FaqAccordion items={faqs} />
+      </div>
+    </div>
+  </section>
+
+  <CtaBand heading="Need a notary at your location?" subheading="Schedule a mobile visit and we'll come to you, fully prepared." />
+</Layout>

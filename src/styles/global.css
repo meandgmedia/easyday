@@ -284,8 +284,23 @@
     margin: 2.75rem 0;
   }
 
-  .prose-notary .md-cta .btn {
+  .prose-notary .md-cta a.btn {
+    background-color: var(--color-seal);
+    border-color: var(--color-seal);
+    color: var(--color-paper);
     text-decoration: none;
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .prose-notary .md-cta a.btn:hover {
+    background-color: var(--color-seal-dark);
+    border-color: var(--color-seal-dark);
+    color: var(--color-paper);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .prose-notary .md-cta a.btn:visited {
+    color: var(--color-paper);
   }
 
   .category-pill {

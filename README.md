@@ -58,7 +58,7 @@ The blog is a content collection (`src/content/blog/*.md`) with:
   - "Remote Online Notary" mentions link to `/remote-online-notary`
   - Any RON platform recommendation links externally to BlueNotary (`https://bluenotary.us/`, `target="_blank"`)
 
-**Sitemap:** fully automatic via `@astrojs/sitemap` — every new blog post or page is picked up on the next `npm run build` with zero manual editing. `robots.txt` points to `/sitemap-index.xml`.
+**Sitemap:** generated directly at build time by `src/pages/sitemap.xml.ts`, pulling every static route plus every blog post from the content collection — served at `/sitemap.xml` with zero manual editing. `robots.txt` points there directly.
 
 ## Before You Launch — Things To Personalize
 
@@ -78,7 +78,7 @@ Search the codebase for `TODO` comments, or update these directly:
 | Privacy Policy / Terms | `src/pages/privacy-policy.astro`, `src/pages/terms.astro` — have a Florida attorney review before publishing |
 
 If your production domain changes from `easydaynotary.com`, update it in:
-`src/consts.ts`, `astro.config.mjs`, `public/robots.txt`, `public/sitemap.xml`, and `public/llms.txt`.
+`src/consts.ts`, `astro.config.mjs`, `public/robots.txt`, `src/pages/sitemap.xml.ts`, and `public/llms.txt`.
 
 ## SEO
 

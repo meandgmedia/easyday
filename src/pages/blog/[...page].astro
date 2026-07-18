@@ -1,0 +1,258 @@
+---
+import type { GetStaticPathsOptions } from "astro";
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { breadcrumbSchema } from "../../lib/schema";
+import { BLOG_CATEGORIES } from "../../content.config";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+  );
+  return paginate(posts, { pageSize: 10 });
+}
+
+const { page } = Astro.props;
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "Blog", path: "/blog" },
+];
+
+const categoryLabel = (slug: string) =>
+  BLOG_CATEGORIES.find((c) => c.slug === slug)?.label ?? slug;
+
+// The paginated view above only needs this page's 10 posts. Search and
+// category filtering need to reach every post, so a compact index (no
+// card markup, just the handful of fields search actually needs) is
+// shipped once per page load — far lighter than rendering all 100 full
+// post cards into the DOM up front.
+const allPosts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+const activeCategories = BLOG_CATEGORIES.filter((c) =>
+  allPosts.some((p) => p.data.category === c.slug)
+);
+
+const searchIndex = allPosts.map((post) => ({
+  id: post.id,
+  title: post.data.title,
+  description: post.data.description,
+  category: post.data.category,
+  categoryLabel: categoryLabel(post.data.category),
+  date: post.data.publishDate.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }),
+}));
+
+const pageTitle = page.currentPage === 1 ? "Notary Blog" : `Notary Blog — Page ${page.currentPage}`;
+const pagePath = page.currentPage === 1 ? "/blog" : `/blog/${page.currentPage}`;
+---
+
+<Layout
+  title={pageTitle}
+  description="Guides and insights on Florida notary services, mobile notarization, and Remote Online Notarization from Easy Day Notary."
+  path={pagePath}
+  jsonLd={breadcrumbSchema(crumbs)}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="border-b border-line py-16 md:py-20">
+    <div class="container-page max-w-3xl">
+      <span class="eyebrow">Blog</span>
+      <h1 class="mt-4 font-display text-4xl font-bold leading-tight text-ink sm:text-5xl">
+        Notary knowledge, plainly explained.
+      </h1>
+      <p class="mt-5 text-lg leading-relaxed text-slate">
+        Practical guides on Florida notarization, mobile and remote online
+        notary services, and what to expect at your appointment.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="container-page">
+      <!-- Search + category filter controls -->
+      <div class="flex flex-col gap-5">
+        <div class="relative max-w-md">
+          <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+          </svg>
+          <input
+            type="search"
+            id="blog-search"
+            placeholder="Search all 100 articles..."
+            aria-label="Search blog articles"
+            class="w-full rounded-lg border border-line bg-stone py-3 pl-11 pr-4 text-sm text-ink placeholder:text-slate-light focus:border-ink focus:bg-paper"
+          />
+        </div>
+
+        <div id="category-filters" class="flex flex-wrap gap-2" role="group" aria-label="Filter articles by category">
+          <button type="button" data-category="all" class="category-pill category-pill-active">
+            All
+          </button>
+          {activeCategories.map((cat) => (
+            <button type="button" data-category={cat.slug} class="category-pill">
+              {cat.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Static, pre-built grid for this page — this is what's actually sent on load -->
+      <div id="blog-grid-static" class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        {page.data.map((post) => (
+          <a href={`/blog/${post.id}`} class="card flex flex-col p-7">
+            <div class="flex items-center justify-between gap-3">
+              <span class="font-mono text-xs uppercase tracking-widest text-slate-light">
+                {post.data.publishDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+              </span>
+              <span class="eyebrow shrink-0">{categoryLabel(post.data.category)}</span>
+            </div>
+            <h2 class="mt-3 font-display text-xl font-semibold text-ink">{post.data.title}</h2>
+            <p class="mt-2.5 text-[0.95rem] leading-relaxed text-slate">{post.data.description}</p>
+            <span class="mt-6 inline-flex items-center gap-1.5 font-display text-sm font-semibold text-ink">
+              Read article
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0-4 4m4-4H3" />
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <!-- Prev/Next between real, pre-built pages -->
+      {page.lastPage > 1 && (
+        <nav id="blog-pagination" class="mt-12 flex items-center justify-between border-t border-line pt-8" aria-label="Blog pagination">
+          {page.url.prev ? (
+            <a href={page.url.prev} class="btn btn-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Newer Posts
+            </a>
+          ) : <span aria-hidden="true"></span>}
+          <span class="font-mono text-xs uppercase tracking-widest text-slate-light">
+            Page {page.currentPage} of {page.lastPage}
+          </span>
+          {page.url.next ? (
+            <a href={page.url.next} class="btn btn-secondary">
+              Older Posts
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          ) : <span aria-hidden="true"></span>}
+        </nav>
+      )}
+
+      <!-- Dynamic grid: only shown while a search/category filter is active -->
+      <div id="blog-grid-dynamic" class="mt-10 hidden grid grid-cols-1 gap-6 sm:grid-cols-2"></div>
+
+      <p id="blog-empty-state" class="mt-10 hidden text-center text-slate">
+        No articles match your search. Try a different term or category.
+      </p>
+    </div>
+  </section>
+
+  <CtaBand />
+
+  <script type="application/json" id="blog-search-index" set:html={JSON.stringify(searchIndex)} />
+</Layout>
+
+<script is:inline>
+  const searchInput = document.getElementById("blog-search");
+  const filterGroup = document.getElementById("category-filters");
+  const staticGrid = document.getElementById("blog-grid-static");
+  const dynamicGrid = document.getElementById("blog-grid-dynamic");
+  const paginationNav = document.getElementById("blog-pagination");
+  const emptyState = document.getElementById("blog-empty-state");
+  const indexEl = document.getElementById("blog-search-index");
+
+  let posts = [];
+  try {
+    posts = JSON.parse(indexEl?.textContent || "[]");
+  } catch {
+    posts = [];
+  }
+
+  let activeCategory = "all";
+
+  const requestedCategory = new URLSearchParams(window.location.search).get("category");
+  if (requestedCategory) {
+    const matchingButton = filterGroup?.querySelector(`button[data-category="${requestedCategory}"]`);
+    if (matchingButton) {
+      activeCategory = requestedCategory;
+      filterGroup.querySelectorAll("button[data-category]").forEach((btn) => {
+        btn.classList.toggle("category-pill-active", btn === matchingButton);
+      });
+    }
+  }
+
+  function cardHTML(post) {
+    return `
+      <a href="/blog/${post.id}" class="card flex flex-col p-7">
+        <div class="flex items-center justify-between gap-3">
+          <span class="font-mono text-xs uppercase tracking-widest text-slate-light">${post.date}</span>
+          <span class="eyebrow shrink-0">${post.categoryLabel}</span>
+        </div>
+        <h2 class="mt-3 font-display text-xl font-semibold text-ink">${post.title}</h2>
+        <p class="mt-2.5 text-[0.95rem] leading-relaxed text-slate">${post.description}</p>
+        <span class="mt-6 inline-flex items-center gap-1.5 font-display text-sm font-semibold text-ink">
+          Read article
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0-4 4m4-4H3" />
+          </svg>
+        </span>
+      </a>
+    `;
+  }
+
+  function applyFilters() {
+    const query = (searchInput?.value || "").trim().toLowerCase();
+    const isFiltering = query.length > 0 || activeCategory !== "all";
+
+    if (!isFiltering) {
+      // No active search or category — show the real, pre-built page again.
+      staticGrid?.classList.remove("hidden");
+      paginationNav?.classList.remove("hidden");
+      dynamicGrid?.classList.add("hidden");
+      dynamicGrid.innerHTML = "";
+      emptyState?.classList.add("hidden");
+      return;
+    }
+
+    const matches = posts.filter((post) => {
+      const matchesCategory = activeCategory === "all" || post.category === activeCategory;
+      const haystack = `${post.title} ${post.description} ${post.categoryLabel}`.toLowerCase();
+      const matchesSearch = !query || haystack.includes(query);
+      return matchesCategory && matchesSearch;
+    });
+
+    staticGrid?.classList.add("hidden");
+    paginationNav?.classList.add("hidden");
+    dynamicGrid?.classList.remove("hidden");
+    dynamicGrid.innerHTML = matches.map(cardHTML).join("");
+    emptyState?.classList.toggle("hidden", matches.length !== 0);
+  }
+
+  searchInput?.addEventListener("input", applyFilters);
+
+  filterGroup?.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-category]");
+    if (!button) return;
+
+    activeCategory = button.dataset.category;
+    filterGroup.querySelectorAll("button[data-category]").forEach((btn) => {
+      btn.classList.toggle("category-pill-active", btn === button);
+    });
+    applyFilters();
+  });
+
+  applyFilters();
+</script>

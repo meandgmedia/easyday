@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
-import TestimonialCard from "../components/TestimonialCard.astro";
 import FaqAccordion from "../components/FaqAccordion.astro";
 import CtaBand from "../components/CtaBand.astro";
 import StampMark from "../components/StampMark.astro";
@@ -284,35 +283,6 @@ const faqs = [
           </li>
         ))}
       </ol>
-    </div>
-  </section>
-
-  <!-- ============ TESTIMONIALS ============ -->
-  <section class="border-b border-line bg-stone py-20 md:py-24">
-    <div class="container-page">
-      <span class="eyebrow">Client Feedback</span>
-      <h2 class="mt-4 max-w-2xl font-display text-3xl font-semibold text-ink md:text-4xl">
-        Trusted for showing up prepared, and on time.
-      </h2>
-
-      <!-- Placeholder testimonials — replace with real client reviews -->
-      <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-        <TestimonialCard
-          quote="Easy Day Notary came to our closing on short notice and made a stressful afternoon completely painless."
-          name="J. Ramirez"
-          role="Home Buyer, Vero Beach"
-        />
-        <TestimonialCard
-          quote="The remote online session was quick and simple — I didn't have to leave my office."
-          name="M. Chen"
-          role="Small Business Owner"
-        />
-        <TestimonialCard
-          quote="Professional, punctual, and clearly knew the loan signing package inside and out."
-          name="D. Whitfield"
-          role="Title Company Coordinator"
-        />
-      </div>
     </div>
   </section>
 

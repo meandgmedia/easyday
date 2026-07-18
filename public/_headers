@@ -1,0 +1,14 @@
+# Cloudflare Pages custom headers — https://developers.cloudflare.com/pages/configuration/headers/
+#
+# These files are read by search engines and AI crawlers, and need to always
+# reflect the latest deploy. Force no caching at the edge so a stale copy can
+# never be served after a new deployment.
+
+/sitemap.xml
+  Cache-Control: no-store, must-revalidate
+
+/robots.txt
+  Cache-Control: no-store, must-revalidate
+
+/llms.txt
+  Cache-Control: no-store, must-revalidate

@@ -13,7 +13,7 @@ faqs:
   - question: "Do I need an LSA for every real estate closing?"
     answer: "Not strictly — a general mobile notary can witness signatures on most closing documents. LSA training simply adds familiarity with the full package and title company workflows, which can reduce errors on complex closings."
   - question: "Does Easy Day Notary offer loan signing services?"
-    answer: "Loan signing agent certification is in progress. In the meantime, Easy Day Notary handles individual notarizations within closing packages, along with the full range of mobile and Remote Online Notary services."
+    answer: "Yes. Easy Day Notary handles loan signing appointments for purchase, refinance, and HELOC closings throughout the Treasure Coast, in addition to the full range of mobile and Remote Online Notary services."
 ---
 
 If you've ever sat down for a mortgage closing, you've seen the stack of paper — thick enough to make you wonder if you're buying a house or a small library. The person guiding you through signing all of it correctly, in the right order, with the right notarizations in the right places, is usually a Loan Signing Agent.
@@ -36,7 +36,7 @@ An LSA's job is to:
 
 That last point matters more than people realize — a delayed closing package can hold up funding, which holds up the entire transaction.
 
-<p class="md-cta"><a href="/schedule" class="btn btn-primary">Schedule a Notary Appointment</a></p>
+<p class="md-cta"><a href="/loan-signings" class="btn btn-primary">Schedule a Loan Signing</a></p>
 
 ## Documents in a Typical Closing Package
 
@@ -67,12 +67,12 @@ If you're a title company or borrower trying to find the right person for a clos
 - **Availability that matches your closing window**, since these appointments are rarely flexible on timing
 - **A track record of accuracy** — a single missing notarization can delay funding by days
 
-## Where Easy Day Notary Fits In Right Now
+## Where Easy Day Notary Fits In
 
-Loan Signing Agent certification is something I'm actively working toward. In the meantime, [Easy Day Notary](/) still handles the individual notarizations within closing packages as part of general mobile notary work, along with the full range of [Remote Online Notary](/remote-online-notary) services for documents that don't require an in-person signature. You can check our [loan signings page](/loan-signings) for where that certification currently stands.
+[Easy Day Notary](/) handles loan signing appointments for purchase, refinance, and HELOC closings throughout the Treasure Coast, alongside the full range of [Remote Online Notary](/remote-online-notary) services for documents that don't require an in-person signature. Head to our [loan signings page](/loan-signings) for more on how that service works.
 
 ## The Bottom Line
 
-A Loan Signing Agent exists to make sure a closing package — one of the most document-heavy signings most people will ever go through — gets handled accurately and on schedule. Whether you need a full LSA or a general notary for a specific document within your closing, [reach out](/contact) and we'll point you in the right direction.
+A Loan Signing Agent exists to make sure a closing package — one of the most document-heavy signings most people will ever go through — gets handled accurately and on schedule. [Reach out](/contact) with your closing details and timeline, and we'll get it on the schedule.
 
-<p class="md-cta"><a href="/schedule" class="btn btn-primary">Schedule a Notary Appointment</a></p>
+<p class="md-cta"><a href="/loan-signings" class="btn btn-primary">Schedule a Loan Signing</a></p>

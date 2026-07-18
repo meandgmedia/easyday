@@ -1,7 +1,0 @@
-# Cloudflare Pages redirects — https://developers.cloudflare.com/pages/configuration/redirects/
-
-# The sitemap is now auto-generated at build time by @astrojs/sitemap as
-# sitemap-index.xml (which references sitemap-0.xml). This alias keeps the
-# old /sitemap.xml URL working for anyone who bookmarked it or submitted it
-# to Google Search Console.
-/sitemap.xml /sitemap-index.xml 301

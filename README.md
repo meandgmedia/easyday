@@ -45,6 +45,21 @@ public/
   robots.txt, llms.txt, sitemap.xml
 ```
 
+## Blog System
+
+The blog is a content collection (`src/content/blog/*.md`) with:
+
+- **Categories** — defined once in `src/content.config.ts` (`BLOG_CATEGORIES`). Each post's frontmatter `category` field must match one of those slugs. Add a new category by adding it to that array first.
+- **Search & filtering** — `/blog` has a client-side search box and category pills (vanilla JS, no backend). They filter on title, description, category, and tags.
+- **Per-post FAQs** — optional `faqs` array in frontmatter renders as an accordion on the post and is automatically included as FAQPage JSON-LD.
+- **CTA buttons inside posts** — wrap a link in `<p class="md-cta"><a href="/schedule" class="btn btn-primary">Your Text</a></p>` directly in the markdown body (raw HTML is supported).
+- **Backlink conventions used throughout the posts:**
+  - "Easy Day Notary" mentions link to `/`
+  - "Remote Online Notary" mentions link to `/remote-online-notary`
+  - Any RON platform recommendation links externally to BlueNotary (`https://bluenotary.us/`, `target="_blank"`)
+
+**Sitemap:** fully automatic via `@astrojs/sitemap` — every new blog post or page is picked up on the next `npm run build` with zero manual editing. `robots.txt` points to `/sitemap-index.xml`.
+
 ## Before You Launch — Things To Personalize
 
 Search the codebase for `TODO` comments, or update these directly:

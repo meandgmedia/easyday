@@ -3,6 +3,7 @@ title: "Florida Notary Services: What You Need to Know"
 description: "A practical guide to how notarization works in Florida, what a notary can and can't do, and how to prepare for a smooth appointment."
 publishDate: 2026-06-02
 author: "Easy Day Notary"
+category: "notary-basics"
 tags: ["Florida notary", "notary guide", "mobile notary"]
 ---
 

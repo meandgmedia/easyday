@@ -278,4 +278,42 @@
     color: var(--color-ink);
     margin: 1.5rem 0;
   }
+
+  .prose-notary .md-cta {
+    text-align: center;
+    margin: 2.75rem 0;
+  }
+
+  .prose-notary .md-cta .btn {
+    text-decoration: none;
+  }
+
+  .category-pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid var(--color-line);
+    background-color: var(--color-paper);
+    padding: 0.45rem 1rem;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-slate);
+    transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+  }
+
+  .category-pill:hover {
+    border-color: var(--color-ink);
+    color: var(--color-ink);
+  }
+
+  .category-pill-active {
+    background-color: var(--color-ink);
+    border-color: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  .category-pill-active:hover {
+    color: var(--color-paper);
+  }
 }

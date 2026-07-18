@@ -14,13 +14,11 @@ export const SITE = {
 };
 
 export const CONTACT = {
-  // TODO: Replace with your real business phone number.
-  phoneDisplay: "(555) 555-0123",
-  phoneHref: "tel:+15555550123",
-  // TODO: Replace with your real business email address.
-  email: "hello@easydaynotary.com",
-  // TODO: Replace with the counties / cities you actually serve.
-  serviceArea: "Serving Indian River, St. Lucie & Brevard Counties, Florida",
+  phoneDisplay: "(772) 226-0875",
+  phoneHref: "tel:+17722260875",
+  smsHref: "sms:+17722260875",
+  email: "hi@easydaynotary.com",
+  serviceArea: "Serving Treasure Coast, Florida and Remote Online Nationwide",
   addressLocality: "Vero Beach",
   addressRegion: "FL",
   // TODO: Replace with your real postal code if you list a public address.

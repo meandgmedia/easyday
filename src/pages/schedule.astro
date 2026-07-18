@@ -27,7 +27,7 @@ const crumbs = [
       <p class="mt-6 text-lg leading-relaxed text-slate">
         Choose whichever fits your document: an in-person mobile visit, or a
         Remote Online Notarization session. Prefer to talk it through first?
-        Call {CONTACT.phoneDisplay}.
+        Text {CONTACT.phoneDisplay} — it's the fastest way to get a response.
       </p>
     </div>
   </section>
@@ -43,24 +43,11 @@ const crumbs = [
           location in our service area.
         </p>
 
-        <div
-          id="calendly-embed-placeholder"
-          class="mt-6 flex min-h-[420px] flex-1 flex-col items-center justify-center rounded-xl border-2 border-dashed border-line bg-paper p-6 text-center"
-        >
-          <!--
-            TODO: Paste your Calendly embed code here.
-            Example (Calendly inline widget):
-
-            <div class="calendly-inline-widget" data-url="https://calendly.com/your-link" style="min-width:320px;height:630px;"></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-          -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-slate-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3.75 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h12a2.25 2.25 0 0 1 2.25 2.25v11.25m-16.5 0a2.25 2.25 0 0 0 2.25 2.25h12a2.25 2.25 0 0 0 2.25-2.25m-16.5 0V11.25a2.25 2.25 0 0 1 2.25-2.25h12a2.25 2.25 0 0 1 2.25 2.25v7.5" />
-          </svg>
-          <p class="mt-4 font-display text-sm font-semibold text-ink">Calendly embed placeholder</p>
-          <p class="mt-1 max-w-xs text-xs text-slate-light">
-            This container is reserved for your Calendly scheduling widget.
-          </p>
+        <div class="mt-6 flex-1 overflow-hidden rounded-xl border border-line">
+          <!-- Calendly inline widget begin -->
+          <div class="calendly-inline-widget" data-url="https://calendly.com/easydaynotary/30min?primary_color=2e9b06" style="min-width:320px;height:700px;"></div>
+          <script is:inline type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          <!-- Calendly inline widget end -->
         </div>
       </div>
 
@@ -98,7 +85,7 @@ const crumbs = [
     <div class="container-page max-w-2xl text-center mx-auto">
       <h2 class="font-display text-2xl font-semibold text-ink">Not sure which one you need?</h2>
       <p class="mt-3 text-[0.98rem] leading-relaxed text-slate">
-        Read our guide on
+        Read our guide on{" "}
         <a href="/blog/mobile-notary-vs-online-notary" class="link-underline font-semibold text-ink">
           Mobile Notary vs. Remote Online Notary
         </a>, or <a href="/contact" class="link-underline font-semibold text-ink">contact us</a> and we'll help you decide.

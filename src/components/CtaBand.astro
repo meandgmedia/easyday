@@ -8,7 +8,7 @@ interface Props {
 
 const {
   heading = "Ready for an easy day?",
-  subheading = "Schedule your notarization online in minutes, or call to talk through what you need.",
+  subheading = "Schedule your notarization online in minutes, or text us to talk through what you need. Texting is the fastest way to reach us.",
 } = Astro.props;
 ---
 
@@ -22,8 +22,8 @@ const {
       <a href="/schedule" class="btn bg-paper text-ink hover:bg-seal-light">
         Schedule Appointment
       </a>
-      <a href={CONTACT.phoneHref} class="btn border border-white/25 text-paper hover:border-white/50">
-        {CONTACT.phoneDisplay}
+      <a href={CONTACT.smsHref} class="btn border border-white/25 text-paper hover:border-white/50">
+        Text {CONTACT.phoneDisplay}
       </a>
     </div>
   </div>

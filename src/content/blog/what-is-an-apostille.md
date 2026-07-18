@@ -13,7 +13,7 @@ faqs:
   - question: "Does every notarized document need an apostille afterward?"
     answer: "Only if the document is headed to another country that requires one. Domestic notarized documents never need an apostille."
   - question: "Does Easy Day Notary provide apostille services?"
-    answer: "Apostille preparation assistance is coming soon. Our full range of mobile and Remote Online Notary services is available now."
+    answer: "Yes. Easy Day Notary assists with apostille preparation for documents headed overseas, alongside the full range of mobile and Remote Online Notary services."
 ---
 
 If you've been told your document needs "an apostille" before it can be used in another country, and you're not entirely sure what that means or how it relates to the notarization you already got, you're not alone — this is one of the more genuinely confusing corners of document preparation.
@@ -51,9 +51,9 @@ No — only countries that are members of the Hague Apostille Convention accept 
 3. **The Department verifies** the notary's or official's signature and seal
 4. **The apostille certificate is attached**, making the document ready for use in the destination country
 
-## Where Easy Day Notary Fits In Right Now
+## Where Easy Day Notary Fits In
 
-Notarization — often the first step before an apostille can be requested — is available now through [Easy Day Notary](/), in person or through [Remote Online Notary](/remote-online-notary). Apostille preparation assistance itself is coming soon; check our [apostille services page](/apostille-services) for the latest on that timeline.
+[Easy Day Notary](/) assists with apostille preparation for documents headed overseas, alongside notarization — often the first step before an apostille can be requested — available in person or through [Remote Online Notary](/remote-online-notary). Visit our [apostille services page](/apostille-services) for more on how that process works.
 
 ## Getting Started
 

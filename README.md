@@ -47,7 +47,7 @@ public/
 
 ## Blog System
 
-The blog is a content collection (`src/content/blog/*.md`) with:
+The blog is a content collection (`src/content/blog/*.md`) with 100 published posts spanning Remote Online Notary, mobile notary, document guides, local service areas, and general notary FAQs. Structure:
 
 - **Categories** — defined once in `src/content.config.ts` (`BLOG_CATEGORIES`). Each post's frontmatter `category` field must match one of those slugs. Add a new category by adding it to that array first.
 - **Search & filtering** — `/blog` has a client-side search box and category pills (vanilla JS, no backend). They filter on title, description, category, and tags.

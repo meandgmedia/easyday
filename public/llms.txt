@@ -26,17 +26,25 @@ scheduling including evenings and weekends.
 
 - [The Complete Guide to Remote Online Notary Services in Florida](https://easydaynotary.com/blog/remote-online-notary-guide-florida): How RON works, Florida law, and getting started with BlueNotary.
 - [What Is a Remote Online Notary (RON)?](https://easydaynotary.com/blog/what-is-remote-online-notary): A plain-English explainer on RON vs. traditional notarization.
+- [Electronic Notary vs Notary Public: What's the Difference?](https://easydaynotary.com/blog/electronic-notary-vs-notary-public): Clarifying eNotary, RON, and traditional notary terminology.
+- [Can Documents Be Notarized Over Zoom?](https://easydaynotary.com/blog/can-documents-be-notarized-over-zoom): Why RON requires purpose-built platforms, not general video calls.
+- [Need an Online Notary Today? Here's What to Do](https://easydaynotary.com/blog/need-online-notary-today): A same-day RON checklist.
 - [Is Online Notarization Safe?](https://easydaynotary.com/blog/is-online-notarization-safe): The security and identity verification behind RON sessions.
 - [Documents You Can Notarize Online](https://easydaynotary.com/blog/documents-you-can-notarize-online): Which documents work for RON and which typically don't.
 - [Can You Use an Online Notary Across State Lines?](https://easydaynotary.com/blog/online-notary-across-state-lines): How interstate RON recognition works.
 - [Florida Mobile Notary Pricing Explained](https://easydaynotary.com/blog/florida-mobile-notary-pricing): Travel fee and notarial fee breakdown for mobile appointments.
 - [What Is a Mobile Notary and How Does It Work?](https://easydaynotary.com/blog/what-is-a-mobile-notary): How mobile notary appointments work end to end.
+- [Can a Notary Come to My House?](https://easydaynotary.com/blog/can-a-notary-come-to-my-house): How mobile notary home visits work.
+- [Can You Find a Notary at the Airport?](https://easydaynotary.com/blog/notary-at-the-airport): Why airport notaries are rare, and better alternatives for travelers.
 - [Weekend & After-Hours Mobile Notary Appointments](https://easydaynotary.com/blog/weekend-after-hours-mobile-notary): Evening and weekend mobile notary scheduling.
 - [Mobile Notary Services for Seniors Aging in Place](https://easydaynotary.com/blog/mobile-notary-seniors-aging-in-place): Mobile notary support for independent seniors.
 - [25 Common Documents That Require a Notary](https://easydaynotary.com/blog/documents-that-require-a-notary): A categorized list of frequently notarized documents.
 - [How to Notarize a Power of Attorney in Florida](https://easydaynotary.com/blog/how-to-notarize-power-of-attorney-florida): Witness requirements and the notarization process for POAs.
 - [Medical vs Financial Power of Attorney](https://easydaynotary.com/blog/medical-vs-financial-power-of-attorney): The difference between the two types of POA.
 - [Do Wills Need to Be Notarized in Florida?](https://easydaynotary.com/blog/do-wills-need-to-be-notarized-florida): Will execution requirements and self-proving affidavits.
+- [What Happens During a Trust Signing?](https://easydaynotary.com/blog/what-happens-during-a-trust-signing): What a trust signing appointment involves.
+- [Florida Quit Claim Deeds Explained](https://easydaynotary.com/blog/florida-quit-claim-deeds-explained): Quit claim vs. warranty deeds and notarization requirements.
+- [Business & Corporate Notary Services for Florida Companies](https://easydaynotary.com/blog/business-corporate-notary-services-florida): Which business documents need notarization.
 - [What Is a Sworn Affidavit?](https://easydaynotary.com/blog/what-is-a-sworn-affidavit): What an affidavit is and how notarization fits in.
 - [When Do You Actually Need a Notary?](https://easydaynotary.com/blog/when-do-you-need-a-notary): When notarization is required versus optional.
 - [How to Notarize a Vehicle Title in Florida](https://easydaynotary.com/blog/how-to-notarize-a-vehicle-title-florida): When a Florida title needs a notary and how the process works.
@@ -52,6 +60,8 @@ scheduling including evenings and weekends.
 - [Port St. Lucie Mobile Notary](https://easydaynotary.com/blog/port-st-lucie-mobile-notary): Local mobile notary coverage in Port St. Lucie.
 - [Fort Pierce Mobile Notary](https://easydaynotary.com/blog/fort-pierce-mobile-notary): Local mobile notary coverage in Fort Pierce.
 - [Stuart Mobile Notary](https://easydaynotary.com/blog/stuart-mobile-notary): Local mobile notary coverage in Stuart and Martin County.
+- [Sebastian Mobile Notary](https://easydaynotary.com/blog/sebastian-mobile-notary): Local mobile notary coverage in Sebastian.
+- [Melbourne Mobile Notary](https://easydaynotary.com/blog/melbourne-mobile-notary): Local mobile notary coverage in Melbourne and Brevard County.
 - [Florida Notary Services: What You Need to Know](https://easydaynotary.com/blog/florida-notary-services-guide): An overview of how notarization works in Florida.
 - [Mobile Notary vs Remote Online Notary](https://easydaynotary.com/blog/mobile-notary-vs-online-notary): A comparison to help signers choose the right service.
 

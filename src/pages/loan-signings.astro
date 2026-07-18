@@ -2,93 +2,43 @@
 import Layout from "../layouts/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import CtaBand from "../components/CtaBand.astro";
-import FaqAccordion from "../components/FaqAccordion.astro";
-import { breadcrumbSchema, faqSchema } from "../lib/schema";
-import { CONTACT } from "../consts";
+import StampMark from "../components/StampMark.astro";
+import { breadcrumbSchema } from "../lib/schema";
 
 const crumbs = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
   { name: "Loan Signings", path: "/loan-signings" },
 ];
-
-const faqs = [
-  {
-    question: "What loan packages do you handle?",
-    answer:
-      "Purchases, refinances, HELOCs, and reverse mortgages — including full lender and title company signing packages.",
-  },
-  {
-    question: "Do you work directly with title and escrow companies?",
-    answer:
-      "Yes. Easy Day Notary can be scheduled directly by title companies, escrow officers, or signing services, as well as by individual borrowers.",
-  },
-  {
-    question: "How do completed documents get returned?",
-    answer:
-      "Signed packages are scanned back and shipped per the title company's instructions, typically within the timeframe required by your closing.",
-  },
-  {
-    question: "Are you familiar with e-closing platforms?",
-    answer:
-      "Experience spans both traditional wet-signing closings and hybrid e-closings, depending on what your lender or title company requires.",
-  },
-];
 ---
 
 <Layout
   title="Loan Signing Agent Services in Florida"
-  description="Experienced Florida loan signing agent for purchase, refinance, and HELOC closings. Accurate, on-time signings for title companies and borrowers."
+  description="Easy Day Notary is working toward offering loan signing agent services for Florida purchase, refinance, and HELOC closings. Details coming soon."
   path="/loan-signings"
-  jsonLd={[breadcrumbSchema(crumbs), faqSchema(faqs)]}
+  jsonLd={breadcrumbSchema(crumbs)}
 >
   <Breadcrumbs items={crumbs} />
 
-  <section class="border-b border-line py-16 md:py-24">
-    <div class="container-page max-w-3xl">
-      <span class="eyebrow">Loan Signing Agent</span>
-      <h1 class="mt-4 font-display text-4xl font-bold leading-tight text-ink sm:text-5xl">
-        Closings handled with precision.
+  <section class="py-24 md:py-32">
+    <div class="container-page flex flex-col items-center text-center">
+      <StampMark class="h-28 w-28" label="COMING SOON" />
+      <span class="eyebrow mt-8">Loan Signings</span>
+      <h1 class="mt-4 max-w-2xl font-display text-4xl font-bold leading-tight text-ink sm:text-5xl">
+        Coming soon.
       </h1>
-      <p class="mt-6 text-lg leading-relaxed text-slate">
-        Loan documents don't leave room for error. Easy Day Notary manages
-        purchase, refinance, and HELOC signings with the accuracy and
-        punctuality title companies and borrowers depend on.
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate">
+        <!-- TODO: Update once Loan Signing Agent (LSA) certification is complete -->
+        We're working toward offering loan signing agent services for
+        purchase, refinance, and HELOC closings. In the meantime, our full
+        range of mobile and remote online notary services is available now.
       </p>
       <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-        <a href="/schedule" class="btn btn-primary">Schedule a Signing</a>
-        <a href={CONTACT.smsHref} class="btn btn-secondary">Text Now</a>
+        <a href="/services" class="btn btn-primary">View Current Services</a>
+        <a href="/contact" class="btn btn-secondary">Ask a Question</a>
       </div>
     </div>
   </section>
 
-  <section class="border-b border-line bg-stone py-16 md:py-20">
-    <div class="container-page grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-      {[
-        { title: "Purchase Closings", body: "Buyer-side signings coordinated around your closing date." },
-        { title: "Refinances", body: "Full refinance packages, reviewed for completeness before shipping." },
-        { title: "HELOCs", body: "Home equity line of credit documents signed accurately and on time." },
-        { title: "Reverse Mortgages", body: "Careful, patient signings for reverse mortgage closings." },
-      ].map((item) => (
-        <div class="border-t-2 border-ink pt-5">
-          <h3 class="font-display text-lg font-semibold text-ink">{item.title}</h3>
-          <p class="mt-2 text-[0.95rem] leading-relaxed text-slate">{item.body}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <section class="border-b border-line py-16 md:py-20">
-    <div class="container-page">
-      <span class="eyebrow">FAQ</span>
-      <h2 class="mt-4 max-w-xl font-display text-3xl font-semibold text-ink">
-        Loan signing questions.
-      </h2>
-      <div class="mt-10">
-        <FaqAccordion items={faqs} />
-      </div>
-    </div>
-  </section>
-
-  <CtaBand heading="Coordinating a closing?" subheading={`Text to schedule a signing or discuss availability. ${CONTACT.phoneDisplay}`} />
+  <CtaBand />
 </Layout>

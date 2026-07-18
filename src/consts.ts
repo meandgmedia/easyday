@@ -24,9 +24,8 @@ export const CONTACT = {
   // TODO: Replace with your real postal code if you list a public address.
   postalCode: "32960",
   hours: [
-    { day: "Monday – Friday", time: "8:00 AM – 7:00 PM" },
-    { day: "Saturday", time: "9:00 AM – 3:00 PM" },
-    { day: "Sunday", time: "By appointment" },
+    { day: "Monday – Friday", time: "Open" },
+    { day: "Saturday – Sunday", time: "24/7 by appointment" },
   ],
 };
 

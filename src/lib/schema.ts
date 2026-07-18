@@ -41,13 +41,14 @@ export function localBusinessSchema() {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         opens: "08:00",
-        closes: "19:00",
+        closes: "20:00",
       },
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Saturday"],
-        opens: "09:00",
-        closes: "15:00",
+        dayOfWeek: ["Saturday", "Sunday"],
+        opens: "00:00",
+        closes: "23:59",
+        description: "Weekends available 24/7 by appointment",
       },
     ],
   };

@@ -40,6 +40,27 @@ const included = [
   "Witnessing of signatures and completion of the notarial certificate",
   "Journal entry recorded for every notarization performed",
 ];
+
+const pricingZones = [
+  {
+    range: "0–15 miles",
+    area: "Vero Beach",
+    travelFee: "$35",
+    stampFee: "+ $10 per stamp",
+  },
+  {
+    range: "15–30 miles",
+    area: "Sebastian, Fort Pierce",
+    travelFee: "$55",
+    stampFee: "+ $10 per stamp",
+  },
+  {
+    range: "30–60 miles",
+    area: "Melbourne, Stuart, Jupiter",
+    travelFee: "$75+",
+    stampFee: "+ $10 per stamp",
+  },
+];
 ---
 
 <Layout
@@ -95,6 +116,67 @@ const included = [
           <p class="mt-2 text-[0.95rem] leading-relaxed text-slate">{item.body}</p>
         </div>
       ))}
+    </div>
+  </section>
+
+  <section class="border-b border-line py-16 md:py-20">
+    <div class="container-page">
+      <span class="eyebrow">Pricing</span>
+      <h2 class="mt-4 max-w-xl font-display text-3xl font-semibold text-ink">
+        Mobile travel fees.
+      </h2>
+      <p class="mt-4 max-w-2xl text-[0.98rem] leading-relaxed text-slate">
+        Travel fees are based on distance from Vero Beach. Every notarization
+        also includes a per-stamp fee, in line with Florida's statutory
+        notary fee limits.
+      </p>
+
+      <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+        {pricingZones.map((zone) => (
+          <div class="card p-7">
+            <span class="eyebrow">{zone.range}</span>
+            <h3 class="mt-3 font-display text-lg font-semibold text-ink">{zone.area}</h3>
+            <p class="mt-5 font-display text-3xl font-bold text-ink">{zone.travelFee}</p>
+            <p class="text-sm text-slate-light">travel fee</p>
+            <p class="mt-3 text-sm font-medium text-slate">{zone.stampFee}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div class="card p-7">
+          <h3 class="font-display text-base font-semibold text-ink">Premium Add-Ons</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate">
+            An additional $25–$50 applies for "emergency" requests (under 2
+            hours' notice), hospital or nursing home visits (which take
+            longer), or appointments after 8:00 PM.
+          </p>
+        </div>
+        <div class="card p-7">
+          <h3 class="font-display text-base font-semibold text-ink">Beyond 60 Miles</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate">
+            Travel beyond 60 miles is available and priced based on urgency,
+            distance, and the number of stamps needed — text us for a quote.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-col items-start gap-5 rounded-2xl border border-seal/30 bg-seal-light p-8 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <span class="eyebrow">A Faster Option</span>
+          <p class="mt-2 max-w-lg font-display text-lg font-semibold text-ink">
+            Save time and money — schedule a Remote Online Notarization
+            session instead.
+          </p>
+          <p class="mt-1.5 max-w-lg text-sm leading-relaxed text-slate">
+            No travel fee, no waiting for an appointment window. Meet a
+            notary over live video from wherever you are.
+          </p>
+        </div>
+        <a href="/remote-online-notary" class="btn btn-primary shrink-0">
+          Explore Remote Online Notary
+        </a>
+      </div>
     </div>
   </section>
 

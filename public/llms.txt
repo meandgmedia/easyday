@@ -26,6 +26,8 @@ scheduling including evenings and weekends.
 
 - [The Complete Guide to Remote Online Notary Services in Florida](https://easydaynotary.com/blog/remote-online-notary-guide-florida): How RON works, Florida law, and getting started with BlueNotary.
 - [What Is a Remote Online Notary (RON)?](https://easydaynotary.com/blog/what-is-remote-online-notary): A plain-English explainer on RON vs. traditional notarization.
+- [Step-by-Step Guide to Online Notarization](https://easydaynotary.com/blog/step-by-step-online-notarization-guide): A detailed walkthrough of a RON session from booking to delivery.
+- [How Long Is an Online Notarization Valid?](https://easydaynotary.com/blog/how-long-is-online-notarization-valid): Whether RON notarizations expire and how record retention works.
 - [Electronic Notary vs Notary Public: What's the Difference?](https://easydaynotary.com/blog/electronic-notary-vs-notary-public): Clarifying eNotary, RON, and traditional notary terminology.
 - [Can Documents Be Notarized Over Zoom?](https://easydaynotary.com/blog/can-documents-be-notarized-over-zoom): Why RON requires purpose-built platforms, not general video calls.
 - [Need an Online Notary Today? Here's What to Do](https://easydaynotary.com/blog/need-online-notary-today): A same-day RON checklist.
@@ -45,8 +47,14 @@ scheduling including evenings and weekends.
 - [What Happens During a Trust Signing?](https://easydaynotary.com/blog/what-happens-during-a-trust-signing): What a trust signing appointment involves.
 - [Florida Quit Claim Deeds Explained](https://easydaynotary.com/blog/florida-quit-claim-deeds-explained): Quit claim vs. warranty deeds and notarization requirements.
 - [Business & Corporate Notary Services for Florida Companies](https://easydaynotary.com/blog/business-corporate-notary-services-florida): Which business documents need notarization.
+- [Preparing for Your Loan Closing Appointment](https://easydaynotary.com/blog/preparing-for-loan-closing-appointment): A checklist for mortgage closing day.
 - [What Is a Sworn Affidavit?](https://easydaynotary.com/blog/what-is-a-sworn-affidavit): What an affidavit is and how notarization fits in.
 - [When Do You Actually Need a Notary?](https://easydaynotary.com/blog/when-do-you-need-a-notary): When notarization is required versus optional.
+- [Can a Florida Notary Certify Copies?](https://easydaynotary.com/blog/can-a-florida-notary-certify-copies): What copy certification is and its key exceptions.
+- [Can You Get Something Notarized Without ID?](https://easydaynotary.com/blog/notarized-without-id): The credible witness option and why it's rarely practical.
+- [When Can a Florida Notary Refuse Service?](https://easydaynotary.com/blog/when-can-a-notary-refuse-service): The specific legal reasons a notary must decline.
+- [Can a Florida Notary Notarize for Family Members?](https://easydaynotary.com/blog/notarize-for-family-members): Conflict-of-interest rules for notarizing relatives' documents.
+- [Witness vs Notary: What's the Difference?](https://easydaynotary.com/blog/witness-vs-notary): The distinct roles of a witness and a notary.
 - [How to Notarize a Vehicle Title in Florida](https://easydaynotary.com/blog/how-to-notarize-a-vehicle-title-florida): When a Florida title needs a notary and how the process works.
 - [Traveling With a Minor: When You Need a Notarized Consent Form](https://easydaynotary.com/blog/minor-travel-consent-form-notary): Notarized travel consent requirements for minors.
 - [Acceptable Identification for Florida Notarizations](https://easydaynotary.com/blog/acceptable-id-florida-notarization): What counts as valid ID for a notarization.
@@ -62,6 +70,8 @@ scheduling including evenings and weekends.
 - [Stuart Mobile Notary](https://easydaynotary.com/blog/stuart-mobile-notary): Local mobile notary coverage in Stuart and Martin County.
 - [Sebastian Mobile Notary](https://easydaynotary.com/blog/sebastian-mobile-notary): Local mobile notary coverage in Sebastian.
 - [Melbourne Mobile Notary](https://easydaynotary.com/blog/melbourne-mobile-notary): Local mobile notary coverage in Melbourne and Brevard County.
+- [Jupiter Mobile Notary](https://easydaynotary.com/blog/jupiter-mobile-notary): Local mobile notary coverage in Jupiter.
+- [Indian River County Notary](https://easydaynotary.com/blog/indian-river-county-notary): Countywide mobile notary coverage in Indian River County.
 - [Florida Notary Services: What You Need to Know](https://easydaynotary.com/blog/florida-notary-services-guide): An overview of how notarization works in Florida.
 - [Mobile Notary vs Remote Online Notary](https://easydaynotary.com/blog/mobile-notary-vs-online-notary): A comparison to help signers choose the right service.
 

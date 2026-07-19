@@ -2,7 +2,6 @@
 import Layout from "../../layouts/Layout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import CtaBand from "../../components/CtaBand.astro";
-import StampMark from "../../components/StampMark.astro";
 import { breadcrumbSchema } from "../../lib/schema";
 
 const crumbs = [
@@ -46,7 +45,6 @@ const values = [
           A licensed notary who treats your paperwork like it matters.
         </h1>
         <div class="mt-8 space-y-5 text-lg leading-relaxed text-slate">
-          <!-- TODO: Replace this placeholder biography with your own story -->
           <p>
             Easy Day Notary is a Florida-commissioned Notary Public providing
             mobile and Remote Online Notarization services. The goal is
@@ -54,15 +52,57 @@ const values = [
             getting a document properly signed and sealed — as painless as
             possible.
           </p>
+          <!-- TODO: Add Florida notary commission number and E&O/bond policy details once available -->
           <p>
-            [Personal biography placeholder: add your background, years of
-            experience, notary commission number, and bonding and errors
-            &amp; omissions insurance details.]
+            Hi, I'm Matt! Originally from San Diego, California, I now
+            proudly call Vero Beach, Florida home. I'm a licensed, insured,
+            and bonded Florida Notary Public, and I also work full-time as a
+            licensed insurance agent based in Vero Beach, specializing in
+            personal lines — auto, home, boats, and more — with licensing in
+            all 50 states. Before that, I served in the United States Navy
+            as a Mass Communication Specialist, and later worked as an
+            acquisitions analyst and real estate buyer's agent in San Diego.
+            Along the way, I've traveled the world chasing good waves, great
+            food, and new cultures — an experience that's given me a real
+            appreciation for how much careful, well-prepared documentation
+            matters, in business and in life. I'm always happy to help, so
+            don't hesitate to reach out. Thank you for visiting Easy Day
+            Notary!
           </p>
         </div>
       </div>
       <div class="mx-auto flex w-full max-w-sm items-center justify-center">
-        <StampMark class="aspect-square w-full" />
+        <img
+          src="/images/matt-portrait.jpg"
+          alt="Matt, founder of Easy Day Notary"
+          class="aspect-[4/5] w-full rounded-2xl border border-line object-cover shadow-lift"
+          width="1200"
+          height="900"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-line py-16 md:py-20">
+    <div class="container-page grid grid-cols-1 items-center gap-10 md:grid-cols-[0.9fr_1.1fr]">
+      <img
+        src="/images/matt-surfing.jpg"
+        alt="Matt surfing"
+        class="aspect-[3/2] w-full rounded-2xl border border-line object-cover shadow-soft"
+        width="1200"
+        height="800"
+      />
+      <div>
+        <span class="eyebrow">Outside the Office</span>
+        <h2 class="mt-3 font-display text-2xl font-semibold text-ink">
+          When I'm not notarizing, I'm probably chasing a wave.
+        </h2>
+        <p class="mt-4 text-[0.98rem] leading-relaxed text-slate">
+          A San Diego upbringing and a fair bit of world travel left me with
+          a genuine love of surfing, good food, and new places — and a
+          steady, easygoing approach that carries over into every
+          appointment I run.
+        </p>
       </div>
     </div>
   </section>

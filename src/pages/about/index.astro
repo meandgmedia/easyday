@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import StampMark from "../../components/StampMark.astro";
 import { breadcrumbSchema } from "../../lib/schema";
 
 const crumbs = [
@@ -71,14 +72,15 @@ const values = [
           </p>
         </div>
       </div>
-      <div class="mx-auto flex w-full max-w-sm items-center justify-center">
+      <div class="relative mx-auto flex w-full max-w-sm items-center justify-center">
         <img
           src="/images/matt-portrait.jpg"
           alt="Matt, founder of Easy Day Notary"
           class="aspect-[4/5] w-full rounded-2xl border border-line object-cover shadow-lift"
-          width="1200"
-          height="900"
+          width="1000"
+          height="780"
         />
+        <StampMark class="absolute -bottom-5 -right-5 h-24 w-24 bg-paper shadow-soft" />
       </div>
     </div>
   </section>

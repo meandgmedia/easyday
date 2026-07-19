@@ -149,7 +149,7 @@
   .seal-ring {
     position: relative;
     border-radius: 9999px;
-    border: 1.5px dashed var(--color-line);
+    border: 1.5px dashed var(--color-ink);
   }
 
   .stamp-badge {
